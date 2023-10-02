@@ -8,7 +8,7 @@ const specificationRoutes = Router();
 specificationRoutes.post("/", (request, response) =>
   createSpecificationController.handle(request, response)
 );
-specificationRoutes.post("/", (request, response) =>
+specificationRoutes.get("/", (request, response) =>
   listAllSpecificationsController.handle(request, response)
 );
 
