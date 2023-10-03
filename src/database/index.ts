@@ -1,12 +1,12 @@
-import { DataSource, DataSourceOptions } from "typeorm";
+import dotenv from "dotenv";
+import { DataSource } from "typeorm";
 
-const AppDataSource = new DataSource({
-  type: process.env.TYPEORM_CONNECTION,
-  host: process.env.TYPEORM_HOST,
-  port: process.env.TYPEORM_PORT,
-  username: process.env.TYPEORM_USERNAME,
-  password: process.env.TYPEORM_PASSWORD,
-  database: process.env.TYPEORM_DATABASE,
-} as DataSourceOptions);
+import { getConfig } from "./data-source.config";
 
-AppDataSource.initialize();
+dotenv.config();
+
+const dataSource = new DataSource(getConfig());
+
+dataSource.initialize();
+
+export default dataSource;

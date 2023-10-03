@@ -21,10 +21,6 @@ services:
       - ${DEBUG_PORT}:${DEBUG_PORT}
     volumes: 
       - .:/usr/apps
-    links:
-      - database
-    depends_on:
-      - database
       
 volumes:
   pgdata:
