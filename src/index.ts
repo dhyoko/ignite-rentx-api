@@ -1,6 +1,8 @@
 import express from "express";
 import "dotenv/config";
+import "reflect-metadata";
 
+import "./shared/container";
 import dataSource from "./database";
 import { categoriesRoutes } from "./routes/categories.route";
 import { specificationRoutes } from "./routes/specifications.route";
