@@ -1,4 +1,9 @@
-version: "2.21"
+version: "3.8"
+
+networks:
+  default:
+    external: false
+    name: ignite-rentx-local
 
 services:
   database:
@@ -13,6 +18,8 @@ services:
       - POSTGRES_DB=${TYPEORM_DATABASE}
     volumes:
       - pgdata:/data/postgres
+    networks:
+      - default
   app:
     build: .
     container_name: rentx
@@ -21,6 +28,12 @@ services:
       - ${DEBUG_PORT}:${DEBUG_PORT}
     volumes: 
       - .:/usr/apps
+    links:
+      - database
+    depends_on:
+      - database
+    networks:
+      - default
       
 volumes:
   pgdata:
