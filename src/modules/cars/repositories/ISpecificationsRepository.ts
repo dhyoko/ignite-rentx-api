@@ -6,9 +6,9 @@ interface ISpecificationDTO {
 }
 
 interface ISpecificationsRepository {
-  create({ name, description }: ISpecificationDTO): Specification;
-  findByName(name: string): Specification | undefined;
-  list(): Specification[];
+  create({ name, description }: ISpecificationDTO): Promise<Specification>;
+  findByName(name: string): Promise<Specification | undefined>;
+  list(): Promise<Specification[]>;
 }
 
 export { ISpecificationDTO, ISpecificationsRepository };
