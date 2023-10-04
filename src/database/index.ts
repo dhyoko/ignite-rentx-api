@@ -5,6 +5,6 @@ import { getConfig } from "./data-source.config";
 
 dotenv.config();
 
-const dataSource = new DataSource(getConfig({ isMigration: false }));
+const dataSource = new DataSource(getConfig({ isMigration: true }));
 
 export default dataSource;
