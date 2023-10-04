@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "lint:fix": "eslint --fix . --ext ts,tsx",
-    "typeorm": "typeorm-ts-node-commonjs -d src/database/migration.config.ts"
+    "typeorm:data": "typeorm-ts-node-commonjs -d src/database/migration.config.ts",
+    "typeorm": "typeorm-ts-node-commonjs"
   },
   "dependencies": {
     "csv-parse": "^5.5.0",
