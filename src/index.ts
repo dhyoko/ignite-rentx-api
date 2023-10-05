@@ -7,6 +7,7 @@ import dataSource from "./database";
 import { categoriesRoutes } from "./routes/categories.route";
 import { specificationRoutes } from "./routes/specifications.route";
 import { swaggerRoutes } from "./routes/swagger.routes";
+import { usersRoutes } from "./routes/users.route";
 
 const app = express();
 
@@ -20,5 +21,6 @@ dataSource
 app.use("/categories", categoriesRoutes);
 app.use("/specifications", specificationRoutes);
 app.use("/api-docs", swaggerRoutes);
+app.use("/users", usersRoutes);
 
 export { app };
