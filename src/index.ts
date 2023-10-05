@@ -4,6 +4,7 @@ import "reflect-metadata";
 
 import "./shared/container";
 import dataSource from "./database";
+import { authenticateRoutes } from "./routes/authenticate.route";
 import { categoriesRoutes } from "./routes/categories.route";
 import { specificationRoutes } from "./routes/specifications.route";
 import { swaggerRoutes } from "./routes/swagger.routes";
@@ -22,5 +23,6 @@ app.use("/categories", categoriesRoutes);
 app.use("/specifications", specificationRoutes);
 app.use("/api-docs", swaggerRoutes);
 app.use("/users", usersRoutes);
+app.use("/sessions", authenticateRoutes);
 
 export { app };
