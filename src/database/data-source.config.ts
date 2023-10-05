@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { DataSourceOptions } from "typeorm";
 
+import { User } from "../modules/accounts/entities/User";
 import { Category } from "../modules/cars/entities/Category";
 import { Specification } from "../modules/cars/entities/Specification";
 
@@ -21,6 +22,6 @@ export function getConfig({ isMigration }: IConfig): DataSourceOptions {
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
     migrations: ["./src/database/migrations/*.{ts,js}"],
-    entities: [Category, Specification],
+    entities: [Category, Specification, User],
   } as DataSourceOptions;
 }
