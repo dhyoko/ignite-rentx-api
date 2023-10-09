@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
+import dataSource from "@database/index";
 
-import dataSource from "../../../../database";
 import { Category } from "../../entities/Category";
 import {
   ICategoryRepository,

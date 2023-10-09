@@ -1,7 +1,8 @@
 import { Repository } from "typeorm";
 
-import dataSource from "../../../../database";
-import { User } from "../../entities/User";
+import dataSource from "@database/index";
+import { User } from "@modules/accounts/entities/User";
+
 import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
 import { IUsersRepository } from "../IUsersRepository";
 
