@@ -8,9 +8,9 @@
       "@modules/*": ["modules/*"],
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
-      "@database/*": ["database/*"],
+      "@dataSource/*": ["shared/infra/typeorm/*"],
       "@utils/*": ["utils/*"],
-      "@errors/*": ["errors/*"]
+      "@errors/*": ["shared/errors/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,

@@ -3,9 +3,10 @@ import "express-async-errors";
 import "dotenv/config";
 import "reflect-metadata";
 
-import "./shared/container";
-import dataSource from "./database";
-import { AppError } from "./errors/AppError";
+import { AppError } from "@errors/AppError";
+
+import "@shared/container";
+import dataSource from "../typeorm";
 import { authenticateRoutes } from "./routes/authenticate.route";
 import { categoriesRoutes } from "./routes/categories.route";
 import { specificationRoutes } from "./routes/specifications.route";
