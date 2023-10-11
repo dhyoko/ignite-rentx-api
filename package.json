@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "lint:fix": "eslint --fix . --ext ts,tsx",
-    "typeorm:data": "typeorm-ts-node-commonjs -r tsconfig-paths/register -d src/shared/infra/typeorm/migration.config.ts",
-    "typeorm": "typeorm-ts-node-commonjs -r tsconfig-paths/register",
+    "typeorm:data": "typeorm-ts-node-commonjs -d src/shared/infra/typeorm/migration.config.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
     "test": "jest"
   },
   "dependencies": {
