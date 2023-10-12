@@ -8,6 +8,7 @@ import { AppError } from "@errors/AppError";
 import "@shared/container";
 import dataSource from "../typeorm";
 import { authenticateRoutes } from "./routes/authenticate.route";
+import { carsRoutes } from "./routes/cars.route";
 import { categoriesRoutes } from "./routes/categories.route";
 import { specificationRoutes } from "./routes/specifications.route";
 import { swaggerRoutes } from "./routes/swagger.routes";
@@ -27,6 +28,7 @@ app.use("/specifications", specificationRoutes);
 app.use("/api-docs", swaggerRoutes);
 app.use("/users", usersRoutes);
 app.use("/sessions", authenticateRoutes);
+app.use("/cars", carsRoutes);
 
 app.use((err: Error, _: Request, response: Response, __: NextFunction) => {
   if (err instanceof AppError) {

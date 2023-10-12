@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { AppError } from "@/shared/errors/AppError";
 
 import { Car } from "../../infra/typeorm/entities/Cars";
@@ -13,8 +15,12 @@ interface IRequest {
   category_id: string;
 }
 
+@injectable()
 class CreateCarUseCase {
-  constructor(private carsRepository: ICarsRepository) {}
+  constructor(
+    @inject("CarsRepository")
+    private carsRepository: ICarsRepository
+  ) {}
 
   async execute(data: IRequest): Promise<Car> {
     const {
