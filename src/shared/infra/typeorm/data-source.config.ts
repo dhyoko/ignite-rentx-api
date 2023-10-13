@@ -3,21 +3,33 @@ import { DataSourceOptions } from "typeorm";
 
 dotenv.config();
 
-interface IConfig {
-  isMigration: boolean;
+const DB_PATHS = {
+  MIGRATIONS: "./src/shared/infra/typeorm/migrations/*.{ts,js}",
+  SEEDS: "./src/shared/infra/typeorm/seeds/*.{ts,js}",
+};
+
+interface IParam {
+  isMigration?: boolean;
+  isSeed?: boolean;
 }
 
-export function getConfig({ isMigration }: IConfig): DataSourceOptions {
+export function getConfig({
+  isMigration = true,
+  isSeed = false,
+}: IParam): DataSourceOptions {
+  const host = isMigration
+    ? process.env.TYPEORM_LOCAL_MIGRATION_HOST
+    : process.env.TYPEORM_HOST;
+  const migrationsPath = isSeed ? DB_PATHS.SEEDS : DB_PATHS.MIGRATIONS;
+
   return {
     type: process.env.TYPEORM_CONNECTION,
-    host: isMigration
-      ? process.env.TYPEORM_LOCAL_MIGRATION_HOST
-      : process.env.TYPEORM_HOST,
+    host,
     port: process.env.TYPEORM_PORT,
     username: process.env.TYPEORM_USERNAME,
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
-    migrations: ["./src/shared/infra/typeorm/migrations/*.{ts,js}"],
+    migrations: [migrationsPath],
     entities: ["./src/modules/**/entities/*.ts"],
   } as DataSourceOptions;
 }
